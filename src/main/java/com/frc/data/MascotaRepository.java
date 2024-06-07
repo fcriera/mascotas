@@ -1,7 +1,10 @@
 package com.frc.data;
 
-import org.springframework.data.repository.PagingAndSortingRepository;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 import com.frc.model.Mascota;
 
-public interface MascotaRepository extends PagingAndSortingRepository<Mascota, Long>{
+public interface MascotaRepository extends JpaRepository<Mascota, Long>{   
+    Optional<Mascota> findByName(String name);
 }

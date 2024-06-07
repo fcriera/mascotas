@@ -8,6 +8,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -60,6 +61,21 @@ public class MascotaControllerApi {
 		int qtty = 5;
 		PageRequest page = PageRequest.of(pag, qtty);
 		return petRepo.findAll(page);
+	}
+	
+	@DeleteMapping("/{id}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void deleteMascota(@PathVariable("id") Long id) {
+		petRepo.deleteById(id);
+	}
+	
+	@GetMapping("/find/{name}")
+	public ResponseEntity<Mascota> petByName(@PathVariable("name") String name){
+		Optional<Mascota> optPet = petRepo.findByName(name);
+		if (optPet.isPresent()) {
+			return new ResponseEntity<>(optPet.get(), HttpStatus.OK);
+		}
+		return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 	}
 	
 	
