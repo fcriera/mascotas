@@ -1,0 +1,122 @@
+{
+	"info": {
+		"_postman_id": "9a27aa46-5588-4b3d-88a2-7bb742211950",
+		"name": "mascota",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35377538"
+	},
+	"item": [
+		{
+			"name": "mascota-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"per\",\r\n    \"fechaNac\": \"2024-01-6\",\r\n    \"raza\": \"runa\",\r\n    \"peso\": 24.5,\r\n    \"tieneChip\": true,\r\n    \"urlFoto\": \"www.boby.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/mascota",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"mascota"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mascota-by-id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/mascota/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"mascota",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mascota-find-all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/mascota",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"mascota"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mascota-listar-20-+jovenes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/mascota/recents/twentyYoungest",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"mascota",
+						"recents",
+						"twentyYoungest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mascota-pag-by-5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/mascota/recents/0",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"mascota",
+						"recents",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mascota-get-by-name",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
